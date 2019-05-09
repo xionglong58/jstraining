@@ -31,7 +31,7 @@ App.Router = Backbone.Router.extend({
 	search: function(query) {
 		$(document.body).append("调用了 Search 路由，参数等于 " + query + "<br>");
 	},
-
+	
 	default: function(other) {
 		$(document.body).append("你访问的 " + other + " 路由未定义<br>");
 		

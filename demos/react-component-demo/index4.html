@@ -13,19 +13,28 @@
     constructor(...args) {
       super(...args);
       this.state = {
-        text: 'World'
+        text: 'World',
+        year:2019,
+        month:5,
+        day:9,
+        clicked:true
       };
     }
 
     handleClick() {
+      var date=new Date();
       this.setState({
-        text: 'Clicked'
+        text: 'Clicked',
+        year:date.getFullYear(),
+        month:date.getMonth()+1,
+        day:date.getDate(),
+        clicked:!this.state.clicked
       });
     }
 
     render() {
       return <h1 onClick={this.handleClick.bind(this)}>
-        {'Hello ' + this.state.text}
+        {'Hello '}{this.state.clicked&&(this.state.year+' 年 '+this.state.month+' 月 '+this.state.day+' 日')}
       </h1>;
     }
   };
